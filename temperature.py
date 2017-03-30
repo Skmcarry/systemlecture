@@ -48,4 +48,4 @@ while True:
   f = urllib.request.urlopen('http://api.thingspeak.com/update?api_key=XDNMOO2WVVPD8OY0&field1='+ str(t))
   html = int(f.read())
   print(html,t)
-  time.sleep(11)
+  time.sleep(10)
