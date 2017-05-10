@@ -1,0 +1,36 @@
+Script started on Wed 10 May 2017 01:51:58 PM KST
+Intel(R) Parallel Studio XE 2017 for Linux*
+Copyright (C) 2009-2016 Intel Corporation. All rights reserved.
+]0;test10@localhost:~/kmin/nbody[?1034h[test10@localhost nbody]$ make rup[Kn-cpu
+
+Compiling a CPU object file:
+icpc -c -qopenmp -mkl -xMIC-AVX512 -qopt-report -qopt-report-file=nbody.o.optrpt -o "nbody.o" "nbody.cc"
+
+Linking the CPU executable:
+icpc -qopenmp -mkl -xMIC-AVX512 -o app-CPU nbody.o
+./app-CPU 65536
+
+[1mNBODY Version 00[0m
+
+Propagating 65536 particles using 1 thread on CPU...
+
+[1m Step    Time, s Interact/s  GFLOP/s[0m
+    1  2.553e-01  1.683e+10    336.5 *
+    2  1.785e-01  2.406e+10    481.2 *
+    3  1.793e-01  2.395e+10    479.0 *
+    4  1.783e-01  2.408e+10    481.7 
+    5  1.807e-01  2.376e+10    475.3 
+    6  1.904e-01  2.255e+10    451.1 
+    7  1.806e-01  2.378e+10    475.6 
+    8  1.791e-01  2.398e+10    479.5 
+    9  1.813e-01  2.369e+10    473.8 
+   10  1.811e-01  2.372e+10    474.4 
+-----------------------------------------------------
+[1mAverage performance:      [42m     473.1 +- 9.4 GFLOP/s[0m
+-----------------------------------------------------
+* - warm-up, not included in average
+
+rm nbody.o
+]0;test10@localhost:~/kmin/nbody[test10@localhost nbody]$ exit
+
+Script done on Wed 10 May 2017 01:52:10 PM KST
